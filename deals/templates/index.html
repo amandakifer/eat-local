@@ -5,7 +5,18 @@
     <title>Eat Local Deals</title>
 </head>
 <body>
-<h3>Yelp Deals</h3>
-<p>Here are some great deals for dinner around Playa Vista</p>
+<h2>Yelp Deals</h2>
+<h3>Here are some great restaurant deals</h3>
+
+<div>
+{#    TODO fix control statements to have {%  %}#}
+    {if deals}
+    <div>Deals for: {{location.city}}</div>
+    ({{  location.latitude }}, {{ location.longitude }})
+    {endfor}
+    {else}
+    No deals found.
+    {endif}
+</div>
 </body>
 </html>
