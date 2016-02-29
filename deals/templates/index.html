@@ -1,22 +1,85 @@
+{% load bootstrap %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Eat Local Deals</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .navbar {
+            padding-left: 100px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 20px;
+        }
+
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
+        }
+
+        body {
+            background-color: white;
+            padding-top: 90px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        p {
+            font-family: "Arial";
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
-<h2>Yelp Deals</h2>
-<h3>Here are some great restaurant deals</h3>
+<nav class="navbar navbar-default navbar-fixed-top"
+>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Eat Local</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="form-inline">
+            {{ form|bootstrap_inline }}
+            <div class="form-group">
+                <input type="submit" class="btn btn-warning" value="Find Deals">
+            </div>
+        </form>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<br>
 
 <div>
-{#    TODO fix control statements to have {%  %}#}
-    {if deals}
-    <div>Deals for: {{location.city}}</div>
-    ({{  location.latitude }}, {{ location.longitude }})
-    {endfor}
-    {else}
-    No deals found.
-    {endif}
+    {% if results %}
+        <div>Great Deals for {{ location }}</div>
+        {% for business in results.businesses %}
+            <div class="list-group">
+
+                <a href="{{ business.url }}" class="list-group-item active"> {{ business.name }}
+                </a>
+                <span class="list-group-item">Rating: {{ business.rating }}
+                </span>
+                <span class="list-group-item">Deal Details:  {% for deal in business.deals %}
+                    {{ deal.what_you_get|safe }}
+                    </span>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        No Deals Found.  Search again!
+    {% endif %}
 </div>
 </body>
 </html>
