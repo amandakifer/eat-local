@@ -18,5 +18,5 @@ def index(request):
         form = deals_forms.LocationForm()
 
     context['form'] = form
-    return render(request, 'index.html', context)
+    return render(request, 'deals/deals.html', context)
 
