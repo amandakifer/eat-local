@@ -1,0 +1,23 @@
+.navbar {
+    padding-left: 100px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
+}
+
+body {
+    background-color: white;
+    padding-top: 90px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+p {
+    font-family: "Arial", "sans-serif";
+    font-size: 20px;
+}
