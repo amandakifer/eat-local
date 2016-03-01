@@ -9,7 +9,7 @@ import urllib2
 class Yelp:
 
     API_HOST = 'api.yelp.com'
-    SEARCH_LIMIT = 10
+    SEARCH_LIMIT = 20
     SEARCH_PATH = '/v2/search/'
 
     def __init__(self):
