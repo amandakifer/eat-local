@@ -1,6 +1,5 @@
 body {
-    background-color: white;
-    padding-top: 70px;
+    padding-top: 90px;
 }
 
 p {
@@ -25,6 +24,10 @@ p {
 }
 
 @media (max-width: 767px) {
+    body {
+        padding-top: 205px;
+    }
+
     .padded-content {
         margin-left: 10px;
         margin-right: 10px;
