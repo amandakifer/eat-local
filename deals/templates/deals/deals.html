@@ -16,9 +16,9 @@
     </nav>
 
     <div class="padded-content">
-        {% if results %}
+        {% if businesses %}
             <div>Great Deals for {{ location }}</div>
-            {% for business in results.businesses %}
+            {% for business in businesses %}
                 <div class="list-group">
 
                     <a href="{{ business.url }}" class="list-group-item active"> {{ business.name }}
@@ -31,6 +31,22 @@
                 {% endfor %}
                 </div>
             {% endfor %}
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if businesses.has_previous %}
+                        <a href="{{ url }}&page={{ businesses.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ businesses.number }} of {{ businesses.paginator.num_pages }}
+                    </span>
+
+                    {% if businesses.has_next %}
+                        <a href="{{ url }}&page={{ businesses.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
         {% else %}
             No Deals Found.  Search again!
         {% endif %}
