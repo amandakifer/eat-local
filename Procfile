@@ -1,2 +1,2 @@
 # Procfile
-web: gunicorn my_project.wsgi --log-file -
+web: gunicorn eat_local.wsgi --log-file -
