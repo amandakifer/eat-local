@@ -6,8 +6,9 @@ Find local deals on yelp.
 
 Must set the following environment variables
 
-    DJANGO_SECRET_KEY
-    DJANGO_DEBUG
+    DJANGO_SECRET_KEY  # Required on server only
+    DJANGO_DEBUG  # Required for local dev only
+    DATABASE_URL  # Required for local dev only
     YELP_CONSUMER_KEY
     YELP_CONSUMER_SECRET
     YELP_TOKEN
